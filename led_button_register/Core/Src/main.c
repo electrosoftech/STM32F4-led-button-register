@@ -82,7 +82,7 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
   RCC->AHB1ENR |= (1<<3); //bit islemleriyle 3.bite 1 verildi.
-  RCC->AHB1ENR |= (0x00000001); //bit islemleriyle 0.bite 1 verildi.
+  RCC->AHB1ENR |= (0x00000001); //0.bite 1 verildi.
 
 
   GPIOD->MODER &= ~(1<<27); //13.pin output secildi.
