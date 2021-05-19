@@ -82,7 +82,7 @@ int main(void)
 
   /* USER CODE BEGIN SysInit */
   RCC->AHB1ENR |= (1<<3); //bit islemleriyle 3.bite 1 verildi.
-  RCC->AHB1ENR |= (1<<0); //bit islemleriyle 0.bite 1 verildi.
+  RCC->AHB1ENR |= (0x00000001); //bit islemleriyle 0.bite 1 verildi.
 
 
   GPIOD->MODER &= ~(1<<27); //13.pin output secildi.
@@ -104,7 +104,7 @@ int main(void)
   GPIOD->OTYPER &= ~(1<<15); //14.pine 0 verildi
 
   GPIOA->MODER &= ~(1<<1);
-  GPIOA->MODER &= ~(1<<0);
+  GPIOA->MODER &= ~(0x00000001);
 
   /* USER CODE END SysInit */
 
@@ -118,7 +118,7 @@ int main(void)
   while (1)
    {
        // IDR'nin 0. biti okunur. Gelen değer 1 ise yani butona basılmışsa if'e girilir.
- 	  if(GPIOA->IDR & 1<<0)
+ 	  if(GPIOA->IDR & (0x00000001))
  	  {
  		  GPIOD->ODR &= ~(1<<12);// ODR'nin 12. bitine 0 verilir.
  		  GPIOD->ODR |= (1<<13);// ODR'nin 13. bitine 1 verilir ve led yanar.
